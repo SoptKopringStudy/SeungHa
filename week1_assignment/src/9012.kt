@@ -1,6 +1,7 @@
 fun main(args: Array<String>){
 
     var stack1 = KStack3<Char>()
+    var list : ArrayList<String> = arrayListOf<String>()
 
 
     var n = readLine()!!.toInt()
@@ -15,19 +16,19 @@ fun main(args: Array<String>){
             rst += if (input == ')') -1 else 1
 
             if (rst < 0) {
-                println("NO")
+                list.add("NO")
                 break
             }
 
         }
 
         if (rst === 0) {
-            println("YES")
+            list.add("YES")
         } else if (rst > 0) {
-            println("NO")
+            list.add("NO")
         }
-
-
     }
+
+    list.forEach{ println(it)}
 
 }

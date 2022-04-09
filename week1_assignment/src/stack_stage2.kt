@@ -3,7 +3,6 @@ import kotlin.test.assertTrue
 
 fun main(){
 
-    // 제네릭?? 이게??? 맞나????
     var stack1 = KStack2<String>()
 
     stack1.push("첫번째")
@@ -29,21 +28,19 @@ class KStack2<T> (){
 
     fun push(element: T){
         stack.add(element)
-//        println("${element} 추가됨. 현재 스택 상태: ${stack}")
     }
 
-    fun pop(): T { // 스택에 데이터가 없는 경우 어떻게 할 지?
+    fun pop(): T? {
 
-//        if (stack.size <= 0){
-//            println("스택에 데이터가 없습니다 -1 반환")
-//            return T
-//        } else {
+        if (stack.size <= 0){
+            println("스택에 데이터가 없습니다 -1 반환")
+            return null
+        } else {
 
             var target = stack[0]
             stack.removeAt(0)
-//            println("${target} 삭제됨. 현재 스택 상태: ${stack}")
             return target
-//        }
+        }
 
     }
 
@@ -55,7 +52,7 @@ class KStack2<T> (){
 
     fun find (element : T) : Boolean{
         for ( data in stack ) {
-            if (element == data){
+            if (element === data){
                 return true
             }
         }

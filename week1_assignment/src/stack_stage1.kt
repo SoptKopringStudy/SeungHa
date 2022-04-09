@@ -17,7 +17,7 @@ fun main(){
     println(stack1.size())
 
     println( stack1.find(5))
-    println(stack1.find(0))
+    println(stack1.find(1))
 
 
 }
@@ -30,19 +30,17 @@ class KStack constructor() {
 
     fun push(element: Int){
         stack.add(element)
-//        println("${element} 추가됨. 현재 스택 상태: ${stack}")
     }
 
-    fun pop(): Int { // 스택에 데이터가 없는 경우 어떻게 할 지?
+    fun pop(): Int? {
         
         if (stack.size <= 0){
-//            println("스택에 데이터가 없습니다 -1 반환")
-            return -1
+            println("스택에 데이터가 없습니다")
+            return null
         } else {
 
             var target = stack[0]
             stack.removeAt(0)
-//            println("${target} 삭제됨. 현재 스택 상태: ${stack}")
             return target
         }
 
@@ -56,7 +54,7 @@ class KStack constructor() {
 
     fun find (element : Int) : Boolean{
         for ( data in stack ) {
-            if (element == data){
+            if (element === data){
                 return true
             }
         }
