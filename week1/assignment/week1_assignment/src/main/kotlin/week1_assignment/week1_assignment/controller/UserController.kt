@@ -7,13 +7,13 @@ import week1_assignment.week1_assignment.servifindUsersce.UserService
 import java.util.*
 
 
-@RestController()
+@RestController
 @RequestMapping("/user")
 class UserController {
 
     var userService: UserService = UserService();
 
-    @GetMapping
+    @GetMapping("/")
     fun userList(): Any {
 
         val userList: List<String> = userService.findUserList()
